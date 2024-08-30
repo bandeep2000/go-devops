@@ -4,5 +4,6 @@ jobs:
   Build:
    runs-on: ubuntu-latest
    steps:
-    -run: "Hello world"
+    - name: Test
+      run: echo "Hello world"
 
