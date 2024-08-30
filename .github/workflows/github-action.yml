@@ -6,4 +6,7 @@ jobs:
    steps:
     - name: Test
       run: echo "Hello world"
+    - name: Check out repository code
+      uses: actions/checkout@v4
+    - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
