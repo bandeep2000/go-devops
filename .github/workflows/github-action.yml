@@ -26,6 +26,11 @@ jobs:
         uses: actions/checkout@v4
       - name: run lint
         run: /home/runner/go/bin/golangci-lint run .
+      - name: Install GoSec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+  
+      - name: Run GoSec Security Scan
+        run:  /home/runner/go/bin/gosec ./...
   
   Test:
       runs-on: ubuntu-latest
