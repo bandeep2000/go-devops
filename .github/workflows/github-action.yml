@@ -12,6 +12,16 @@ jobs:
     - run: ls
     - run: go build k8-sample.go
   
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display go path
+        run: echo $GOPATH
+      - name: Install golangci-lint
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.54.2
+          golangci-lint --version
+  
   Test:
       runs-on: ubuntu-latest
       steps:
